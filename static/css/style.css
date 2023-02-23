@@ -1,0 +1,136 @@
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.content{
+	display: flex;
+	line-height: center;
+	margin-left: auto;
+	margin-right: auto;
+	flex-direction: column;
+}
+
+.title h1 {
+	text-align: center;
+	font-size: 80px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-weight: 700;
+	color: rgb(255, 0, 0);
+}
+
+.text1 h3 {
+	margin-left: 355px;
+	font-size: 32px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	color: rgb(0, 143, 57);
+}
+
+.description p {
+	text-align: center;
+	width: 676px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 20px;
+	font-family: 'Libre Baskerville', serif;
+}
+
+#output{
+	margin-top: 20px;
+	text-align: center;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-weight: 700;
+	color: limegreen;
+}
+
+#turn{
+	background-color: rgb(153, 203, 255);
+	width: 200px;
+	height: 40px;
+	border: 2px solid black;
+	border-radius: none;
+	box-shadow: 2px 1px;
+}
+
+#resetBtn{
+	background-color: red;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 200px;
+	height: 40px;
+	border: 2px solid black;
+	border-radius: none;
+	box-shadow: 2px 1px;
+}
+	
+.player1, .player2{
+	position: relative;
+}
+
+.player1:before{
+	content: "";
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: black;
+	transform: translate(-50%, -50%) rotate(45deg);	
+}
+
+.player1:after{
+	content: "";
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: black;
+	transform: translate(-50%, -50%) rotate(-45deg);	
+}
+
+.player2:before{
+	content: "";
+	height: 70%;
+	width: 70%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border: 2px solid black;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.trisGrid{
+	background-color: orange;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	border: none;
+	width: 270px;
+	height: 270px;
+}
+
+.row{
+	display: flex;
+}
+
+.col{
+	width: 90px;
+	height: 90px;
+	border: 1px solid black;
+	border: 2px solid black;
+}
+
+.gridBtn{
+	display: block;
+	width: 90px;
+	height: 90px;
+}
+
+.text1{
+	text-align: left;
+}

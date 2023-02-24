@@ -67,6 +67,7 @@
 	</div>
 	<script type="text/javascript">
 
+		
 		let grid = [
 		[null, null, null],
 		[null, null, null],
@@ -75,14 +76,26 @@
 
 		let output = document.querySelector("#output")
 		let reset = document.querySelector("#resetBtn")
-		let links = document.querySelectorAll(".gridBtn"),
+		let onclicks = document.querySelectorAll(".gridBtn"),
 			currentPlayer = 1,
     		cellIsOccupied = true
+		let emptyCells = []
 
+    	function getEmptyCells(grid, emptyCells){
+			for(i = 0; i < 3; i++){
+				for(j = 0; j< 3; j++){
+					if(grid[i][j] === null){
+						let empty = [i,j]
+						emptyCells.push(empty)
+					}
+					
+				}
+			}
+		}
 
-		for(let i = 0; i < links.length; i++){
-			let link = links[i]
-			link.addEventListener("click", function(e){
+		for(let i = 0; i < onclicks.length; i++){
+			let onclink = onclicks[i]
+			onclink.addEventListener("click", function(e){
 				e.preventDefault()
         		cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1")	;			
 		        console.log(cellIsOccupied)
@@ -97,9 +110,13 @@
 		          	grid[riga][colonna] = "O"
 		          }
 		          if(currentPlayer === 1){
+		          	emptyCells = []
+		          	getEmptyCells(grid, emptyCells)
 		            currentPlayer = 2
 		            output.innerHTML = "IT'S UP TO THE PLAYER 2"
 		          }else{
+		          	emptyCells = []
+		          	getEmptyCells(grid, emptyCells)
 		            currentPlayer = 1
 		            output.innerHTML = "IT'S UP TO THE PLAYER 1"
 		          }
@@ -111,6 +128,15 @@
 		reset.addEventListener("click", function(e){
 			window.location.reload()
 		})
+
+		
+	
+
+		function getBestComputerMove(){
+
+		}
+
+
 	</script>
 </body>
 </html>

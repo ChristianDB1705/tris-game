@@ -3,12 +3,13 @@
 	box-sizing: border-box;
 }
 
-.content{
+.container{
 	display: flex;
 	line-height: center;
 	margin-left: auto;
 	margin-right: auto;
 	flex-direction: column;
+	background-color: #ffe6e6;
 }
 
 .title h1 {
@@ -19,20 +20,20 @@
 	color: rgb(255, 0, 0);
 }
 
-.text1 h3 {
+.title2 h3 {
 	margin-left: 355px;
-	font-size: 32px;
+	margin-top: -15px;
+	font-size: 35px;
 	font-family: 'Annie Use Your Telescope', cursive;
 	color: rgb(0, 143, 57);
 }
 
-.description p {
-	text-align: center;
+.paragraph p {
 	width: 676px;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 20px;
-	font-family: 'Libre Baskerville', serif;
+	font-size: 23px;
+	font-family: 'Satisfy', cursive;
 }
 
 #output{
@@ -40,7 +41,9 @@
 	text-align: center;
 	font-family: 'Annie Use Your Telescope', cursive;
 	font-weight: 700;
-	color: limegreen;
+	color: black;
+	background-color: rgb(153, 203, 255);
+	font-size: 25px;
 }
 
 #turn{
@@ -50,6 +53,8 @@
 	border: 2px solid black;
 	border-radius: none;
 	box-shadow: 2px 1px;
+	color: black;
+	
 }
 
 #resetBtn{
@@ -62,6 +67,9 @@
 	border: 2px solid black;
 	border-radius: none;
 	box-shadow: 2px 1px;
+	font-size: 25px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-weight: 700;
 }
 	
 .player1, .player2{
@@ -75,8 +83,9 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	background-color: black;
-	transform: translate(-50%, -50%) rotate(45deg);	
+	transform: translate(-50%, -50%) rotate(45deg);
+	background-color: green;
+	
 }
 
 .player1:after{
@@ -86,8 +95,10 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	background-color: black;
-	transform: translate(-50%, -50%) rotate(-45deg);	
+	transform: translate(-50%, -50%) rotate(-45deg);
+	background-color: green;
+	
+	
 }
 
 .player2:before{
@@ -100,11 +111,13 @@
 	border: 2px solid black;
 	border-radius: 50%;
 	transform: translate(-50%, -50%);
+	border-color: red;
+	
 }
 
 .trisGrid{
 	background-color: orange;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -125,7 +138,7 @@
 	border: 2px solid black;
 }
 
-.gridBtn{
+.gridBtn{	
 	display: block;
 	width: 90px;
 	height: 90px;

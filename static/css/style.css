@@ -1,145 +1,143 @@
-*{
-	margin: 0;
-	box-sizing: border-box;
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.container{
-	display: flex;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #ffe6e6;
-	line-height: center;
-	flex-direction: column;
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffe6e6;
+    line-height: center;
+    flex-direction: column;
 }
 
-.title h1{
-	font-family: 'Annie Use Your Telescope', cursive;
-	color: rgb(255, 0, 0);
-	text-align: center;
-	font-size: 80px;
-	font-weight: 700;
+.title h1 {
+    font-family: 'Annie Use Your Telescope', cursive;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    font-size: 80px;
+    font-weight: 700;
 }
 
-.title2 h3{
-	font-family: 'Annie Use Your Telescope', cursive;
-	color: rgb(0, 143, 57);
-	font-size: 35px;
-	margin-left: 355px;
-	margin-top: -15px;
+.title2 h3 {
+    font-family: 'Annie Use Your Telescope', cursive;
+    color: rgb(0, 143, 57);
+    font-size: 35px;
+    margin-left: 355px;
+    margin-top: -15px;
 }
 
-.paragraph p{
-	font-family: 'Satisfy', cursive;
-	font-size: 23px;
-	width: 676px;
-	margin-left: auto;
-	margin-right: auto;
+.paragraph p {
+    font-family: 'Satisfy', cursive;
+    font-size: 23px;
+    width: 676px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#output{
-	font-family: 'Annie Use Your Telescope', cursive;
-	background-color: rgb(153, 203, 255);
-	color: black;
-	text-align: center;
-	font-weight: 700;
-	font-size: 25px;
-	margin-top: 20px;
+#output {
+    font-family: 'Annie Use Your Telescope', cursive;
+    background-color: rgb(153, 203, 255);
+    color: black;
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 20px;
 }
 
-#turn{
-	background-color: rgb(153, 203, 255);
-	color: black;
-	width: 200px;
-	height: 40px;
-	border: 2px solid black;
-	border-radius: none;
-	box-shadow: 2px 1px;
-}
-	
-.player1:after{
-	content: "";
-	height: 2px;
-	width: 100%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%) rotate(-45deg);
-	background-color: green;
+#turn {
+    background-color: rgb(153, 203, 255);
+    color: black;
+    width: 200px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: none;
+    box-shadow: 2px 1px;
 }
 
-.player1:before{
-	content: "";
-	height: 2px;
-	width: 100%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%) rotate(45deg);
-	background-color: green;
-	
+.player1:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background-color: green;
 }
 
-.player2:before{
-	content: "";
-	height: 70%;
-	width: 70%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	border: 2px solid black;
-	border-radius: 50%;
-	transform: translate(-50%, -50%);
-	border-color: red;
-	
+.player1:before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: green;
+
 }
 
-.player1, .player2{
-	position: relative;
+.player2:before {
+    content: "";
+    height: 70%;
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 2px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border-color: red;
+
 }
 
-.trisGrid{
-	background-color: orange;
-	display: flex;
-	flex-direction: column;
-	border: none;
-	width: 270px;
-	height: 270px;
-	margin-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
+.player1,
+.player2 {
+    position: relative;
 }
 
-.gridBtn{	
-	display: block;
-	width: 90px;
-	height: 90px;
+.trisGrid {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    width: 270px;
+    height: 270px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#resetBtn{
-	font-family: 'Annie Use Your Telescope', cursive;
-	background-color: red;
-	border: 2px solid black;
-	border-radius: none;
-	box-shadow: 2px 1px;
-	font-size: 25px;
-	font-weight: 700;
-	margin-top: 10px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 200px;
-	height: 40px;
+.gridBtn {
+    display: block;
+    width: 90px;
+    height: 90px;
 }
 
-.col{
-	width: 90px;
-	height: 90px;
-	border: 1px solid black;
-	border: 2px solid black;
+#resetBtn {
+    font-family: 'Annie Use Your Telescope', cursive;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: none;
+    box-shadow: 2px 1px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    height: 40px;
 }
 
-.row{
-	display: flex;
+.col {
+    width: 90px;
+    height: 90px;
+    border: 1px solid black;
+    border: 2px solid black;
 }
 
-
-
+.row {
+    display: flex;
+}

@@ -1,142 +1,140 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Anton&family=Libre+Baskerville&family=Satisfy&display=swap" rel="stylesheet">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="static/css/style.css">
-	<title>
-		tris-game
-	</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Anton&family=Libre+Baskerville&family=Satisfy&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title>
+        tris-game
+    </title>
 </head>
-<body>			
-	<div class="container">
-		<div class="title">
-			<h1>Welcome to Tris</h1>
-		</div>
-		<div class="title2">
-			<h3>Rules:</h3>
-		</div>
-		<div class="paragraph">
-			<p>
-				The player who manages to arrange three of their symbols in a straight horizontal, vertical or diagonal line wins. If the grid is filled with none of the players completing a straight line of three symbols, the game ends in a draw.
-			</p>
-		</div>
-		<div id="output">
-				START GAME: PLAYER 1	
-		</div>
 
-		<div class="trisGrid">
-			<div class="row">
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "0" data-col = "0"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "0" data-col = "1" data-row = "0"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "0" data-col = "2" data-row = "0"></a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "1" data-col = "0"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "1" data-col = "1"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "1" data-col = "2"></a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "2" data-col = "0"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "2" data-col = "1"></a>
-				</div>
-				<div class="col">
-					<a href="#" class="gridBtn" data-row = "2" data-col = "2"></a>
-				</div>
-			</div>
-		</div>
-		<button id="resetBtn">START A NEW GAME</button>
-	</div>
-	<script type="text/javascript">
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Welcome to Tris</h1>
+        </div>
+        <div class="title2">
+            <h3>Rules:</h3>
+        </div>
+        <div class="paragraph">
+            <p>
+                The player who manages to arrange three of their symbols in a straight horizontal, vertical or diagonal line wins. If the grid is filled with none of the players completing a straight line of three symbols, the game ends in a draw.
+            </p>
+        </div>
+        <div id="output">
+            START GAME: PLAYER 1
+        </div>
+        <div class="trisGrid">
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="0" data-col="0"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="0" data-col="1" data-row="0"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="0" data-col="2" data-row="0"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="1" data-col="0"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="1" data-col="1"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="1" data-col="2"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="2" data-col="0"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="2" data-col="1"></a>
+                </div>
+                <div class="col">
+                    <a href="#" class="gridBtn" data-row="2" data-col="2"></a>
+                </div>
+            </div>
+        </div>
+        <button id="resetBtn">START A NEW GAME</button>
+    </div>
+    <script type="text/javascript">
+    let grid = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+    ] /*array matrice dove ogni array è una matrice*/ /*variabile senza virgolette, con è stringa*/
 
-		
-		let grid = [
-		[null, null, null],
-		[null, null, null],
-		[null, null, null]
-		]
+    let output = document.querySelector("#output")
+    let reset = document.querySelector("#resetBtn")
+    let onclicks = document.querySelectorAll(".gridBtn"),
+        currentPlayer = 1,
+        cellIsOccupied = true
+    let emptyCells = []	
 
-		let output = document.querySelector("#output")
-		let reset = document.querySelector("#resetBtn")
-		let onclicks = document.querySelectorAll(".gridBtn"),
-			currentPlayer = 1,
-    		cellIsOccupied = true
-		let emptyCells = []
+    function getEmptyCells(grid, emptyCells) {
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                if (grid[i][j] === null) {
+                    let empty = [i, j]
+                    emptyCells.push(empty)
+                }
 
-    	function getEmptyCells(grid, emptyCells){
-			for(i = 0; i < 3; i++){
-				for(j = 0; j< 3; j++){
-					if(grid[i][j] === null){
-						let empty = [i,j]
-						emptyCells.push(empty)
-					}
-					
-				}
-			}
-		}
+            }
+        }
+    }
 
-		for(let i = 0; i < onclicks.length; i++){
-			let onclink = onclicks[i]
-			onclink.addEventListener("click", function(e){
-				e.preventDefault()
-        		cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1")	;			
-		        console.log(cellIsOccupied)
-				if(cellIsOccupied === false){
-					console.log(e.currentTarget.dataset)
-		          e.currentTarget.classList.toggle("player" + currentPlayer)
-		          let riga = e.currentTarget.dataset.row
-		          let colonna = e.currentTarget.dataset.col
-		          if(currentPlayer === 1){
-		          	grid[riga][colonna] = "X"
-		          }else{
-		          	grid[riga][colonna] = "O"
-		          }
-		          if(currentPlayer === 1){
-		          	emptyCells = []
-		          	getEmptyCells(grid, emptyCells)
-		            currentPlayer = 2
-		            output.innerHTML = "IT'S UP TO THE PLAYER 2"
-		          }else{
-		          	emptyCells = []
-		          	getEmptyCells(grid, emptyCells)
-		            currentPlayer = 1
-		            output.innerHTML = "IT'S UP TO THE PLAYER 1"
-		          }
-		        }
-			})
-		}
-
-		
-		reset.addEventListener("click", function(e){
-			window.location.reload()
-		})
-
-		
-	
-
-		function getBestComputerMove(){
-
-		}
+    for (let i = 0; i < onclicks.length; i++) {
+        let onclink = onclicks[i]
+        onclink.addEventListener("click", function(e) {
+            e.preventDefault()
+            cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1");
+            console.log(cellIsOccupied)
+            if (cellIsOccupied === false) {
+                console.log(e.currentTarget.dataset)
+                e.currentTarget.classList.toggle("player" + currentPlayer)
+                let riga = e.currentTarget.dataset.row
+                let colonna = e.currentTarget.dataset.col
+                if (currentPlayer === 1) {
+                    grid[riga][colonna] = "X"
+                } else {
+                    grid[riga][colonna] = "O"
+                }
+                if (currentPlayer === 1) {
+                    emptyCells = []
+                    getEmptyCells(grid, emptyCells)
+                    currentPlayer = 2
+                    output.innerHTML = "IT'S UP TO THE PLAYER 2"
+                } else {
+                    emptyCells = []
+                    getEmptyCells(grid, emptyCells)
+                    currentPlayer = 1
+                    output.innerHTML = "IT'S UP TO THE PLAYER 1"
+                }
+            }
+        })
+    }
 
 
-	</script>
+    reset.addEventListener("click", function(e) {
+        window.location.reload()
+    })
+
+
+
+
+    function getBestComputerMove() {
+
+    }
+    </script>
 </body>
+
 </html>
